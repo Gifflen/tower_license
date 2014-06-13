@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Template tower config
+      local_action:
+        module: template
+        src: tower_license
+        dest: /etc/awx/license
+      register: license
+      when: tower_license is defined
