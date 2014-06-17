@@ -7,6 +7,8 @@
       local_action:
         module: authorized_key
         user: root
-        key: public_keys/bruce
+        key: "{{ item }}"
         state: present
+      with_file:
+        - public_keys/bruce
       register: authorized_key
