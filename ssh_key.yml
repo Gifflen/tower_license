@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+    - name: Authorized host entry
+      local_action:
+        module: authorized_key
+        user: root
+        key: public_keys/bruce
+        state: present
+      register: authorized_key
